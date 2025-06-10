@@ -415,7 +415,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  <h4>Library Staff use Scan in and send to ILL via Redbox</h4><p></p>
 
                   <div align="right">
-                  <b><xsl:value-of select="notification_data/user_for_printing/name"/></b><p></p>
+                 
                         <xsl:value-of select="notification_data/request/note"/><p></p>
 <xsl:value-of select="notification_data/user_for_printing/email"/><p></p>
 </div>
@@ -701,8 +701,8 @@ Madison, WI 53706<br />
 				            <xsl:value-of select="notification_data/destination"/>
          <h4><tr><td><div align="left"><b>Red Box Resource Sharing: Library Staff use Ship Item to Process</b></div></td>
                                 </tr><br /></h4>
-                             <h3><div align="right"><b>
-							<xsl:value-of select="notification_data/user_for_printing/name"/></b></div>
+                             <h3><div align="right">
+						</div>
                              <br /></h3>
  <xsl:value-of select="notification_data/request/note"/><br />
     					
@@ -1112,7 +1112,7 @@ Scannx Ex ID :<div style='font-size:35px;font-family:"3 of 9 Barcode"'>*<xsl:val
          <h4><tr><td><div align="left"><b>Local Hold: Library Staff use Scan in to Process</b></div></td>
                                 </tr><br /></h4>
                              <h3><div align="right"><b>
-							<xsl:value-of select="notification_data/user_for_printing/name"/></b></div>
+							</b></div>
                              <br /></h3>
  <xsl:value-of select="notification_data/request/note"/><br />
     					

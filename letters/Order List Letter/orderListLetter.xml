@@ -1,0 +1,94 @@
+<notification_data>
+    <po>
+        <bill_to_address>
+            <line1>Wisconsin Historical Society - Acquisition Dept</line1>
+            <line2>826 State Street</line2>
+            <line3/>
+            <city>Madison</city>
+            <state_province>WI</state_province>
+            <postal_code>53706</postal_code>
+        </bill_to_address>
+        <create_date>05/14/2025</create_date>
+        <letter_texts>Our ordering instructions are: blah blah</letter_texts>
+        <po_line_list>
+            <po_line>
+                <line_reference>POL123456</line_reference>
+                <create_date>05/13/2025</create_date>
+                <identifier_type>9780123456789</identifier_type>
+                <meta_data_values>
+                    <title>Meatballs</title>
+                    <author>Person, A.</author>
+                </meta_data_values>
+                <total_quantity>2</total_quantity>
+                <total_price_compose>
+                    <currancy>19.99</currancy>
+                    <sum>39.98</sum>
+                </total_price_compose>
+                <vendor_note>Please send two copies</vendor_note>
+            </po_line>
+        </po_line_list>
+        <shipping_method>UPS</shipping_method>
+        <vendor_account>
+            <description>Independant Book Shop</description>
+        </vendor_account>
+    </po>
+    <receivers>
+        <receiver>
+            <user>
+                <user_address_list>
+                    <user_address>
+                        <country>country</country>
+                        <city>city</city>
+                        <state_province>state_province</state_province>
+                        <postal_code>postal_code</postal_code>
+                        <line2>line2</line2>
+                        <line1>line1</line1>
+                    </user_address>
+                </user_address_list>
+                <last_name>last_name</last_name>
+                <first_name>first_name</first_name>
+            </user>
+        </receiver>
+    </receivers>
+    <general_data>
+        <current_date>current_date</current_date>
+        <letter_name>letter_name</letter_name>
+    </general_data>
+    <phys_item_display>
+        <author>author</author>
+        <title>title</title>
+        <issue_level_description>issue_level_description</issue_level_description>
+    </phys_item_display>
+    <deposit>
+        <title>title</title>
+        <user_primary_id>author</user_primary_id>
+        <status>SUBMITTED</status>
+    </deposit>
+    <user_for_printing>
+        <country>country</country>
+        <address3>address3</address3>
+        <address2>address2</address2>
+        <city>city</city>
+        <address1>address1</address1>
+        <name>name</name>
+        <address5>address5</address5>
+        <address4>address4</address4>
+        <state>state</state>
+        <postal_code>postal_code</postal_code>
+    </user_for_printing>
+    <organization_unit>
+        <country>country</country>
+        <address>
+            <country>country</country>
+            <city>city</city>
+            <postal_code>postal_code</postal_code>
+            <line2>line2</line2>
+            <line1>line1</line1>
+        </address>
+        <city>city</city>
+        <name>name</name>
+        <postal_code>postal_code</postal_code>
+        <line2>line2</line2>
+        <line1>line1</line1>
+    </organization_unit>
+</notification_data>
