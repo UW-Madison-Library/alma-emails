@@ -126,7 +126,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td style="margin: 0; padding: 10px 0; vertical-align: top;">
-                                                                            If you need any help or have questions, reply to this email.<br/>
+                                                                            If you need any help, have questions, or if you need this document to be machine-readable for a disability accommodation, please reply to this email.<br/>
                                                                         </td>
                                                                     </tr>
                                                                 </table>    

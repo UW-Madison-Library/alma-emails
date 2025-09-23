@@ -7,6 +7,7 @@ System Job Letter
 ALMA System Job Notification
 
 ## Email From Address
+Alma System Administration Team <ltghelpdesk@library.wisc.edu>
 
 ## Audience
 
@@ -18,3 +19,4 @@ ALMA System Job Notification
 
 
 ## Owner
+Library Technology Group (LTG) 

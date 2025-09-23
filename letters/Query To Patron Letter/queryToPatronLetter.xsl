@@ -55,20 +55,19 @@
 																			<tr>
 																				<td>
 																					<br/>
-																					If you have any questions, feel free to
-																					<a href="http://www.library.wisc.edu/ask/" target="_blank">Ask a Librarian</a>.
+																					If you have any questions, please reply to this email.
 																				</td>
 																			</tr>
 
 																		</xsl:when>
 																		<xsl:when test="notification_data/query_type = 'Type_3_query_name'">
 																			<tr>
-																				<td>We were unable to locate the item with the citation provided. Please verify the citation you submitted or provide additional information.</td>
+																				<td>We were unable to locate the item with the citation provided. Please verify the citation you submitted or provide additional information within the next week.</td>
 																			</tr>
 																			<tr>
 																				<td>
 																					<br/>
-																					If you have any questions, or need additional help please
+																					If you have any questions about your request, please reply to this email.  If you need additional help verifying your citation, please
 																					<a href="http://www.library.wisc.edu/ask/" target="_blank">Ask a Librarian</a>.
 																				</td>
 																			</tr>
@@ -77,13 +76,14 @@
 																			<tr>
 																				<td>Unfortunately, we cannot complete your request because it includes more than one article or chapter, which exceeds the limits allowed by copyright law. </td>
 																			</tr>
+																			<tr><td>Your request will be cancelled.</td></tr>
 																			<tr>
 																				<td><br/>You can request the item as a physical loan through the <a href="https://search.library.wisc.edu/search/system" target="_blank">library catalog</a>.</td>
 																			</tr>
 																			<tr>
 																				<td>
 																					<br/>
-																					If you have any questions, feel free to
+																					If you have any questions about using the library catalog, feel free to
 																					<a href="http://www.library.wisc.edu/ask/" target="_blank">Ask a Librarian</a>.
 																				</td>
 																			</tr>
@@ -102,7 +102,7 @@
 																		</xsl:when>
 																		<xsl:when test="notification_data/query_type = 'Type_6_query_name'">
 																			<tr>
-																				<td>Your request has been canceled. The item is too new to borrow from other libraries, and we are unable to purchase it from the publisher at this time.</td>
+																				<td>Your request has been cancelled. The item is too new to borrow from other libraries, and we are unable to purchase it from the publisher at this time.</td>
 																			</tr>
 																			<tr>
 																				<td><br/>Please resubmit your request in 4-6 weeks, as the item may become available by then.</td>
@@ -110,7 +110,7 @@
 																			<tr>
 																				<td>
 																					<br/>
-																					If you have any questions, feel free to
+																					If you have any questions, please reply to this email. If you would like assistance locating other resources, feel free to
 																					<a href="http://www.library.wisc.edu/ask/" target="_blank">Ask a Librarian</a>.
 																				</td>
 																			</tr>
@@ -125,8 +125,7 @@
 																			<tr>
 																				<td>
 																					<br/>
-																					If you have any questions, feel free to
-																					<a href="http://www.library.wisc.edu/ask/" target="_blank">Ask a Librarian</a>.
+																					If you have any questions, please reply to this email.
 																				</td>
 																			</tr>
 																		</xsl:when>
@@ -138,6 +137,17 @@
 																				<td><br/>Let us know within 7 days if you'd like us to proceed with the request. If we don't receive a response by then, we will cancel it.</td>
 																			</tr>
 																		</xsl:when>
+																			<xsl:when test="notification_data/query_type = 'Type_9_query_name'">
+																			<tr>
+																				<td>We have some questions about your recent library request.</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<br/>
+																					Please reply to this email so Circulation Support can continue processing the request described below.   Your request will be cancelled if we do not receive a response within the next week.
+																				</td>
+																			</tr>
+																		</xsl:when>
 																		<xsl:otherwise>
 																			<tr>
 																				<td>We have some questions about your recent library request. </td>
@@ -145,7 +155,7 @@
 																			<tr>
 																				<td>
 																					<br/>
-																					Please <a href="http://www.library.wisc.edu/ask/" target="_blank">contact a librarian</a> at your earliest convenience so we can continue processing your request.
+																					Please reply to this email so we can continue processing the request described below.   Your request will be cancelled if we do not receive a response within the next week.
 																				</td>
 																			</tr>
 																		</xsl:otherwise>
@@ -162,7 +172,7 @@
                                                                     
 																	<tr>
 																		<td style="vertical-align: top; padding: 15px 25px;">
-																			<h2>Note from the Librarian: </h2>
+																			<h2>Question(s) from the Librarian: </h2>
 																			<xsl:value-of select="notification_data/query_note" />
 																		</td>
 																	</tr>
@@ -451,11 +461,22 @@
 																</table>
 															</td>
 														</tr>
-														<tr>
-															<td>
-																<xsl:call-template name="ILLSignature"/> 
-															</td>
-														</tr>
+													<xsl:choose>
+                                                    <xsl:when test="notification_data/query_type = 'Type_9_query_name'">
+                                                	<tr>
+	                                                	<td>
+		                                                	<xsl:call-template name="circulationSignature"/> 
+	                                                	</td>
+                                                	</tr>
+                                                   </xsl:when>
+                                                      <xsl:otherwise>
+                                                         <tr>
+                                                    		<td>
+                                                    			<xsl:call-template name="ILLSignature"/> 
+                                                    		</td>
+                                                    	</tr>
+                                                    </xsl:otherwise>
+                                                    </xsl:choose>
 													</table>
 												</td>
 											</tr>
@@ -477,4 +498,3 @@
         </html>
     </xsl:template>
 </xsl:stylesheet>
-						

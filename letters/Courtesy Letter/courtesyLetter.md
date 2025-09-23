@@ -7,8 +7,10 @@ Courtesy Letter
 Library Items Are Due Soon
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 Sent 7 days before an item is due.
@@ -17,3 +19,4 @@ Sent 7 days before an item is due.
 A reminder email sent to patrons to notify them that the item(s) they have on loan are due in 7 days.
 
 ## Owner
+Library Circulation

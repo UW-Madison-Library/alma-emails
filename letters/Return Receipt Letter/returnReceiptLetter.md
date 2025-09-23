@@ -7,8 +7,10 @@ Return Receipt Letter
 Your Library Return Receipt
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 Sent when an item is returned to the library
@@ -17,3 +19,4 @@ Sent when an item is returned to the library
 This email provides patrons with a receipt confirming the return of their library items. It serves as a record of the transaction.
 
 ## Owner
+Library Circulation

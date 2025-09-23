@@ -7,8 +7,10 @@ Automatic Loans Renew Notice
 Your Library Materials Have Been Renewed
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 Sent when material is renewed
@@ -17,3 +19,4 @@ Sent when material is renewed
 Notificaiton sent when library material is renewed
 
 ## Owner
+Library Technology Group (LTG)

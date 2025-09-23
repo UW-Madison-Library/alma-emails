@@ -10,6 +10,7 @@ Resource Sharing Lending Slip
 Not Set
 
 ## Audience
+Internal
 
 ## Sent Frequency
 Printed when a resource sharing item is not processed correctly.
@@ -18,3 +19,5 @@ Printed when a resource sharing item is not processed correctly.
 This slip is printed for staff when a resource sharing item is processed incorrectly. It serves as proof for staff to verify the issue and correct it.
 
 ## Owner
+Library Circulation  
+Interlibrary Loan (ILL)

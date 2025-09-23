@@ -7,6 +7,7 @@ Ful Renew Email Letter
 *Subject not set*
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
 *Audience not specified*

@@ -7,8 +7,10 @@ PIN Number Generation Letter
 Your Library Account Access Information
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 As needed, when a patron generates a new PIN for use with self-check machines
@@ -17,3 +19,4 @@ As needed, when a patron generates a new PIN for use with self-check machines
 This email is sent to patrons when they generate a new PIN, typically used with the self-check machines for checking out items.
 
 ## Owner
+Library Circulation

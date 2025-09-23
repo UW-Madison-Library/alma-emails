@@ -7,8 +7,10 @@ Ful Lost Email Letter
 Borrowed Items Declared Lost
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 Sent when an item is declared lost (28 days past due date)
@@ -17,3 +19,5 @@ Sent when an item is declared lost (28 days past due date)
 This email is sent when a patron has not returned an item, and the system declares it lost 28 days past the due date. It is similar to the Ful Lost Loan Notification Letter and the Ful Lost Loan Letter. This one may not be used.
 
 ## Owner
+Library Circulation  
+Interlibrary Loan (ILL)

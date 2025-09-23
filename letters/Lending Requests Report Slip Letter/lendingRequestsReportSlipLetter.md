@@ -8,6 +8,7 @@ Lending Requests Report Slip Letter
 Lending Requests Report
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
 
@@ -16,5 +17,7 @@ Lending Requests Report
 
 
 ## Description
+**May not be used**
 
 ## Owner
+Library Circulation

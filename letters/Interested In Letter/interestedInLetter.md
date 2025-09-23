@@ -4,18 +4,19 @@
 Interested In Letter
 
 ## Email Subject
-*Subject not set*
+Your ebook request is being processed
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
-*Audience not specified*
+Sent out when a request for material is being processed
 
 ## Sent Frequency
-*Sent frequency not specified*
+As needed
 
 ## Description
-This is a problem letter, we might just want to turn off.
+Letter sent after someone has requested access to an ebook
 
 ## Owner
-Acquisitions department (ACQ)
+Library Circulation

@@ -7,8 +7,10 @@ Notify Upon Renewal Letter
 
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+External
 
 ## Sent Frequency
 Its sent when the system successfully auto renews something which is 15 days before it is due
@@ -17,3 +19,4 @@ Its sent when the system successfully auto renews something which is 15 days bef
 Lets people know their item was auto renewed by the system and has a new due date
 
 ## Owner
+Library Circulation

@@ -19,3 +19,5 @@ As needed
 Used exclusively by the Patron Load Team to send the patron export to Kyle and Kevin for processing.
 
 ## Owner
+Kyle Schulz - Library Technology Group (LTG)  
+Kevin Saalen - Shared Development Group (SDG)

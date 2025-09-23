@@ -43,12 +43,12 @@
                                                                     <!-- Begin Email Content-->
                                                                     <tr>
                                                                         <td>
-                                                                            This is a friendly reminder that you have items waiting to pick up at <b><xsl:value-of select="notification/requests_by_library" /></b>. <br/><br/>
+                                                                            This is a friendly reminder that you have items waiting to pick up at <b><xsl:value-of select="/notification_data/requests_by_library/library_requests_for_display/requests/request_for_display/request/assigned_unit_name" /></b>. <br/><br/>
                                                                         </td>
                                                                     </tr>
                                                                     <xsl:choose>
                                                                         <!-- Memorial Library -->
-                                                                        <xsl:when test="contains(notification/requests_by_library, 'Memorial Library')">
+                                                                        <xsl:when test="contains(notification_data/requests_by_library/library_requests_for_display/requests/request_for_display/request/assigned_unit_name, 'Memorial Library')">
                                                                             <tr>
                                                                                 <td>How would you like to pick up your items?<br/></td>
                                                                             </tr>

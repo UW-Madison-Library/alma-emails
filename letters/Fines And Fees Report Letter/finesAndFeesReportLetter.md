@@ -7,8 +7,10 @@ Fines and Fees Report Letter
 Fines and Fees Report
 
 ## Email From Address
+Circulation Support <circulation@library.wisc.edu>
 
 ## Audience
+Internal (Business Office)
 
 ## Sent Frequency
 Once a week or when fees are paid or waived
@@ -17,3 +19,4 @@ Once a week or when fees are paid or waived
 This letter is used to deliver an Excel file to Jaime's team in the Business Office once a week.
 
 ## Owner
+Library Circulation
