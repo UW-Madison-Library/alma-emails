@@ -41,55 +41,136 @@
                                                             <td>
                                                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0">
 																	<tr>
-																		<td>We regret to inform you that your request for the following item, placed on <xsl:value-of select="notification_data/general_data/current_date"/>, has been cancelled:<br/><br/></td>
-																	</tr>
-																	<tr>
-																		<td><xsl:call-template name="libraryRecordTitle" /></td>
-																	</tr>         
+																		<td>We regret to inform you that your request, placed on <xsl:value-of select="notification_data/general_data/current_date"/>, has been cancelled.<br/><br/></td>
+																	</tr>        
 																	<xsl:choose>
-																	<xsl:when test="contains(notification_data/request/status_note_display,'A local request was created instead')">
-																		<tr>
-																			<td>
-																				<xsl:message terminate="yes">Local Request</xsl:message>
-																			</td>
-																		</tr>
-																	</xsl:when>	
-																	<xsl:when test="contains(notification_data/request/status_note_display,'Converted to resource sharing request')">
-																		<tr>
-																			<td>
-																				<xsl:message terminate="yes">RS request</xsl:message>
-																			</td>
-																		</tr>
-																	</xsl:when>
-																		<xsl:when test="starts-with(notification_data/request/user_group,'COMMUNITY')">
-																			<tr>
-																				<td>The item is not available through the UW-Madison Libraries.<br/><br/></td>
+                                    <xsl:when test="contains(notification_data/request/status_note_display,'A local request was created instead')">
+                                      <tr>
+                                        <td>
+                                          <xsl:message terminate="yes">Local Request</xsl:message>
+                                        </td>
+                                      </tr>
+                                    </xsl:when>	
+                                    <xsl:when test="contains(notification_data/request/status_note_display,'Converted to resource sharing request')">
+                                      <tr>
+                                        <td>
+                                          <xsl:message terminate="yes">RS request</xsl:message>
+                                        </td>
+                                      </tr>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with(notification_data/request/user_group,'COMMUNITY')">
+                                      <tr>
+                                        <td>The item is not available through the UW-Madison Libraries.<br/><br/></td>
+                                      </tr>
+                                      <tr><td><table width="100%" cellspacing="0" cellpadding="5" class="darkmode-heading" 
+                                    style="border-collapse: collapse; border: 1px solid #eeeeee; background-color: #fcfcfc; border-radius: 8px!important; margin-bottom: 15px;" role="presentation">
+                                    <tr>
+																				<td style="vertical-align: top; padding: 15px 25px;">
+																					<b>Cancellation Reason: </b><br/>
+																					<xsl:value-of select="notification_data/request/status_note_display" /><br/>
+																				</td>
 																			</tr>
-
-                      														<xsl:if test="notification_data/request/note != ''">
+																				<xsl:if test="notification_data/request/cancel_reason != ''">
 																				<tr>
-																					<td>
-																						<b>Request: </b>
-																						<xsl:value-of select="notification_data/request/note" />
+																					<td style="vertical-align: top; padding: 15px 25px;">
+																						<b>Additional information: </b><br/>
+																						<xsl:value-of select="notification_data/request/cancel_reason" /><br/>
+																					</td>
+																				</tr>
+																			</xsl:if> 
+                                      <xsl:if test="string-length(notification_data/phys_item_display/title) > 0">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Title:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/title"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>
+                                      <xsl:if test="notification_data/phys_item_display/author !=''">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Author:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/author"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>
+                                      <xsl:if test="notification_data/phys_item_display/issue_level_description !=''">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Description:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/issue_level_description"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>		
+																			<xsl:if test="notification_data/request/note != ''">
+																				<tr>
+																					<td style="vertical-align: top; padding: 15px 25px;">
+																						<b>Request: </b><br/>
+																						<xsl:value-of select="notification_data/request/note" /><br/>
 																					</td>
 																				</tr>
 																			</xsl:if>
-																			<tr>
-																				<td>
-																					<b>Cancellation Reason: </b>
-																					<xsl:value-of select="notification_data/request/status_note_display" />
-																				</td>
-																			</tr>
 																			<xsl:if test="notification_data/request/cancel_reason != ''">
 																				<tr>
-																					<td>
-																						<b>Additional Information: </b>
-																						<xsl:value-of select="notification_data/request/cancel_reason" />
+																					<td style="vertical-align: top; padding: 15px 25px;">
+																						<b>Additional information: </b><br/>
+																						<xsl:value-of select="notification_data/request/cancel_reason" /><br/>
 																					</td>
 																				</tr>
 																			</xsl:if>     
-																		</xsl:when>
-																		<xsl:otherwise>
+                                    </table></td></tr>
+                                    </xsl:when>
+																	<xsl:otherwise>
+                                   <tr><td><table width="100%" cellspacing="0" cellpadding="5" class="darkmode-heading" 
+                                    style="border-collapse: collapse; border: 1px solid #eeeeee; background-color: #fcfcfc; border-radius: 8px!important; margin-bottom: 15px;" role="presentation">
+                                    <tr>
+																				<td style="vertical-align: top; padding: 15px 25px;">
+																					<b>Cancellation Reason: </b><br/>
+																					<xsl:value-of select="notification_data/request/status_note_display" /><br/>
+																				</td>
+																			</tr>
+																				<xsl:if test="notification_data/request/cancel_reason != ''">
+																				<tr>
+																					<td style="vertical-align: top; padding: 15px 25px;">
+																						<b>Additional information: </b><br/>
+																						<xsl:value-of select="notification_data/request/cancel_reason" /><br/>
+																					</td>
+																				</tr>
+																			</xsl:if> 
+                                      <xsl:if test="string-length(notification_data/phys_item_display/title) > 0">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Title:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/title"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>
+                                      <xsl:if test="notification_data/phys_item_display/author !=''">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Author:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/author"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>
+                                      <xsl:if test="notification_data/phys_item_display/issue_level_description !=''">
+                                          <tr>
+                                              <td style="vertical-align: top; padding: 15px 25px;">
+                                                  <b>Description:</b><br/>
+                                                  <xsl:value-of select="notification_data/phys_item_display/issue_level_description"/><br/>
+                                              </td>
+                                          </tr>
+                                      </xsl:if>		
+																			<xsl:if test="notification_data/request/note != ''">
+																				<tr>
+																					<td style="vertical-align: top; padding: 15px 25px;">
+																						<b>Request: </b><br/>
+																						<xsl:value-of select="notification_data/request/note" /><br/>
+																					</td>
+																				</tr>
+																			</xsl:if>
+																    
+                                    </table></td></tr>
 																			
 																			<!--Line for all other requests so they get the ILL link-->
 																			<tr>
@@ -103,29 +184,7 @@
 																					If you have any questions about why your request was cancelled, please feel free to reply to this email. 
 																					For any other inquiries, you can <a href="https://www.library.wisc.edu/help/" style="color: #0073CE;" target="_blank">Ask a Librarian</a>.<br/><br/>
 																				</td>
-																			</tr>				
-																			<xsl:if test="notification_data/request/note != ''">
-																				<tr>
-																					<td>
-																						<b>Request: </b>
-																						<xsl:value-of select="notification_data/request/note" />
-																					</td>
-																				</tr>
-																			</xsl:if>
-																			<tr>
-																				<td>
-																					<b>Cancellation Reason: </b>
-																					<xsl:value-of select="notification_data/request/status_note_display" />
-																				</td>
-																			</tr>
-																			<xsl:if test="notification_data/request/cancel_reason != ''">
-																				<tr>
-																					<td>
-																						<b>Additional information: </b>
-																						<xsl:value-of select="notification_data/request/cancel_reason" />
-																					</td>
-																				</tr>
-																			</xsl:if>     
+																			</tr>		
 																		</xsl:otherwise>
 																	</xsl:choose>
 																</table>
