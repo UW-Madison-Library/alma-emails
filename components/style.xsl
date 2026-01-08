@@ -311,6 +311,25 @@
         </table>
     </xsl:template>
 
+    <xsl:template name="AcquisitionsSignature">
+        <table cellspacing="0" cellpadding="0" border="0" role="presentation">
+            <tr>
+                <td style="padding-bottom: 40px; width: 500px; padding-top: 30px;">
+                    <p style="padding: 0px 0;">Sincerely,</p>
+                    <p style="fmargin: 5px 0px 10px 0; padding-bottom: 10px; border-bottom: 2px solid #e5e5e5;">UW-Madison Libraries Acquisitions Department</p>
+                    <p style="padding-bottom: 5px;">For assistance, please:</p>
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
+                       <tr>
+                            <td style="padding-bottom: 10px;">
+                                Email us at <a href="mailto:ctsorders@library.wisc.edu" target="_blank" style="color: #0073CE; text-decoration: underline;">ctsorders@library.wisc.edu</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </xsl:template>
+
     <xsl:template name="AdminSignature">
         <table cellspacing="0" cellpadding="0" border="0" role="presentation">
             <tr>
@@ -339,6 +358,121 @@
                 </td>
             </tr>
         </table>
+    </xsl:template>
+
+    <xsl:template name="systemHeader">
+        <xsl:output method="html" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+            <meta name="x-apple-disable-message-reformatting" />
+            <meta name="color-scheme" content="light dark" />
+            <meta name="supported-color-schemes" content="light dark" />
+            <!--[if gte mso 9]>
+            <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+            </xml>
+            <![endif]-->
+            <title>
+                <xsl:value-of select="notification_data/general_data/subject"/>
+            </title>
+			<style>
+                body {
+                    background-color:#fff;
+                    font-family: Arial, sans-serif; 
+                    color:#333; 
+                    margin:0; 
+                    padding:0; 
+                    font-size: 16px;
+                }
+                .listing td {
+                    border-bottom: 1px solid #eee;
+                }
+                .listing tr:hover td {
+                    background-color:#eee;
+                }
+                .listing th {
+                    background-color:#f5f5f5;
+                }
+                h4 {
+                    line-height: 3.2px;
+                }
+                .barcode { 
+                    font-family:"Barcode 3 of 9", "3 of 9 Barcode", "Libre Barcode 39"; 
+                    font-size: 38px; 
+                    padding-left: 32px;
+                }
+                .messageBody {
+                    width: 50% ;
+                }
+                a, .link {
+                    color: #0073CE!important;
+                    text-decoration: underline!important;
+                }
+                .dark a {
+                    color: #ffffff!important;
+                }
+                #root [x-apple-data-detectors=true], a[x-apple-data-detectors=true] {
+                    color: inherit!important;
+                    text-decoration: inherit!important;
+                }
+                [x-apple-data-detectors-type="calendar-event"] {
+                    color: inherit!important;
+                    -webkit-text-decoration-color: inherit!important;
+                    text-decoration-color: inherit!important;
+                }
+                .ExternalClass {
+                    width: 100%;
+                }
+			</style>
+            <style>
+                @media (prefers-color-scheme: dark) {
+                    .dark-img {
+                        display: block!important;
+                    }
+                    .light-img {
+                        display: none!important;
+                    }
+                    .darkmode {
+                        background-color: #262524!important; background: #262524!important;
+                    }
+                    .darkmode2 {
+                        background-color: #0e0e0e!important; background: #0e0e0e!important;
+                    }
+                    .dark-border {
+                        border: 1px solid #333333!important;
+                    }
+                    h1, h2, h3, p, span, h1 a, h2 a, .header a, img, strong {
+                        color: #EDEEEF!important;
+                    }
+                    .darkmode tr td, .darkmode tr td h1, .darkmode tr td h2, .darkmode tr td p, .darkmode tr td span {
+                        color: #EDEEEF!important;
+                    }
+                    .darkmode-heading{
+                        background-color: #464646!important; background: #464646!important;
+                        border: none!important;
+                    }
+                    a, .link { color: #7EABCE!important; }
+                    .footer .link, .footer a { color: #fdfdfd!important; }
+                }
+            </style>
+            <!--[if (gte mso 9)|(IE)]>
+            <style>
+                li {
+                    margin-left: 27px!important;
+                    mso-special-format: bullet;
+                }
+                .forDumbOutlooks {
+                    margin-left: -25px!important;
+                }
+            </style>
+            <![endif]-->
+        </head>
     </xsl:template>
 
     <xsl:template name="generalStyle">
