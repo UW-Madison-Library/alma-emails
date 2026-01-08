@@ -66,6 +66,17 @@
 																			</td>
 																		</tr>
 																	</xsl:if>
+																		<xsl:if test="notification_data/phys_item_display/fulfillment_note != ''">
+																		<tr>
+																			<td style="height: 20px;"></td> <!-- This row adds a vertical gap -->
+																		</tr>
+																		<tr>
+																			<td>
+																				<h2 style=" margin: 0; padding: 0;">Additional Information About Your Loan: </h2>
+																				<xsl:value-of select="notification_data/phys_item_display/fulfillment_note" /><br/>
+																			</td>
+																		</tr>
+																	</xsl:if>
 																</xsl:when>
 
                                                                 <!-- Special or inhouse only-->
@@ -112,6 +123,7 @@
 																			</td>
 																		</tr>
 																	</xsl:if>
+																	
 																</xsl:when>
 
 																<!-- Digital Delivery -->
@@ -138,6 +150,7 @@
 																			</td>
 																		</tr>
 																	</xsl:if>
+																		
 																</xsl:when>
 
 																<!-- Memorial Library -->
@@ -173,24 +186,28 @@
 																		</td>
 																	</tr>
 
-																	<xsl:if test="notification_data/request/system_notes != '' or notification_data/phys_item_display/fulfillment_note != ''">
+																	<xsl:if test="notification_data/request/system_notes != ''">
 																		<tr>
 																			<td style="height: 20px;"></td> <!-- This row adds a vertical gap -->
 																		</tr>
 																		<tr>
 																			<td>
-																				<h2 style="margin: 0; padding: 0;">Additional Information About Your Loan:</h2>
-																				<xsl:if test="notification_data/request/system_notes != ''">
-																					<xsl:value-of select="notification_data/request/system_notes" /><br/>
-																				</xsl:if>
-																				<xsl:if test="notification_data/phys_item_display/fulfillment_note != ''">
-																					<xsl:value-of select="notification_data/phys_item_display/fulfillment_note" /><br/>
-																				</xsl:if>
+																				<h2 style=" margin: 0; padding: 0;">Additional Information About Your Loan: </h2>
+																				<xsl:value-of select="notification_data/request/system_notes" /><br/>
 																			</td>
 																		</tr>
 																	</xsl:if>
-
-																	
+																		<xsl:if test="notification_data/hys_item_display/fulfillment_note != ''">
+																		<tr>
+																			<td style="height: 20px;"></td> <!-- This row adds a vertical gap -->
+																		</tr>
+																		<tr>
+																			<td>
+																				<h2 style=" margin: 0; padding: 0;">Additional Information About Your Loan: </h2>
+																				<xsl:value-of select="notification_data/phys_item_display/fulfillment_note" /><br/>
+																			</td>
+																		</tr>
+																	</xsl:if>
 																</xsl:when>
 
 																<!-- Default -->
@@ -226,9 +243,11 @@
 																			<td>
 																				<h2 style=" margin: 0; padding: 0;">Additional Information About Your Loan: </h2>
 																				<xsl:value-of select="notification_data/request/system_notes" /><br/>
+																				<xsl:value-of select="notification_data/phys_item_display/fulfillment_note" /><br/>
 																			</td>
 																		</tr>
 																	</xsl:if>
+																	
 																</xsl:otherwise>
 															</xsl:choose>
 															<!-- End Email Content-->
