@@ -3,7 +3,13 @@
 
 	<xsl:include href="style.xsl" />
 	<xsl:include href="header.xsl" />
-
+	
+	<!-- ========================================================================== -->
+	<!--   Uncomment this if using the old styles sheet. Delete the dashes and !,in each line below-->
+	<!--   xsl:include href="senderReceiver.xsl" /       	             		-->
+	<!--   xsl:include href="mailReason.xsl" /   			                    -->
+	<!--   xsl:include href="footer.xsl" /           		                	-->
+	<!--   xsl:include href="recordTitle.xsl" /       		                	-->
 	<!-- ========================================================================== -->
 	<!--   Variable Block                              								-->
 	<!--   Customize these values for each individual campus             			-->
@@ -22,7 +28,7 @@
 	<xsl:variable name="mail_return_address_header"> <!--<span>####</span><span style="float: right"><b>LIBRARY MAIL</b></span><br />--></xsl:variable>
 
 	<!-- Mail return address (used in footer_mail) -->
-	<xsl:variable name="mail_return_address"> 
+    <xsl:variable name="mail_return_address"> 
 		UW-Madison - ILL<br />
 		Memorial Library<br />
 		728 State Street, B106<br />
@@ -72,8 +78,7 @@
 				<td><h1 style="font-size: 18px;">Route to ILL for shipping</h1></td>
 			</tr>
 			<tr>
-				<td style="padding: 10px 13px;">
-					TO:<br />
+				<td style="padding: 10px 18px;">
 					<xsl:value-of select="notification_data/alternate_symbol"/><br />
 					<b><xsl:value-of select="notification_data/partner_name"/></b><br />
 				</td>
@@ -117,53 +122,54 @@
 
 	<!-- Redbox Footer: Flips "Return To" text using font or CSS -->
 	<xsl:template name="footer_redbox">
-		<!-- TODO: Add Oshkosh font if not already loaded -->
 		<xsl:choose>
-			<xsl:when test="$use_oshkosh_font = 'true'">
-				<div style="position: absolute; bottom: 0; left: 0">
-					<p align="left" style="font-size:25px; font-weight: bold; font-family:oshkosh;">
-						<xsl:call-template name="reverse">
-							<xsl:with-param name="input">
-								<xsl:call-template name="libLookup"><xsl:with-param name="input" select="notification_data/item/library_name"/></xsl:call-template>
-							</xsl:with-param>
-						</xsl:call-template></p>
-						<div style="font-size:25px; font-weight: bold; font-family:oshkosh;" align="left">nosidaM-WU</div><br />
-					<p style="font-size:20px; font-family:oshkosh;" align="left">:oT nruteR</p>
-				</div>
-			</xsl:when>
-			<xsl:otherwise>
-				<div style="position: absolute; bottom: 0; left: 0; transform: rotate(180deg); -webkit-transform: rotate(180deg); margin: 0 16px; padding: 0 16px;">
-					<p style="font-size:20px;" align="left">Return to:</p>
-					<p align="left" style="font-size:25px; font-weight: bold">
-						<xsl:call-template name="libLookup">
-							<!--xsl:with-param name="input" select="'_Manitowoc Library'"/-->
-							<xsl:with-param name="input" select="notification_data/item/library_name"/>
-						</xsl:call-template>
-					</p>
-					<xsl:value-of select="notification_data/item/library_name"/>
-					<div style="font-size:25px; font-weight: bold; font-family:oshkosh;" align="left">nosidaM-WU</div><br />
-				</div>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
+      <xsl:when test="$use_oshkosh_font = 'true'">
+        <div class="abs_foot">
+          <p align="left" style="font-size:20px; font-weight: bold; font-family:oshkosh; position: fixed; bottom: 0; padding-bottom: 25px;">
+            <xsl:call-template name="reverse">
+              <xsl:with-param name="input">
+                <xsl:call-template name="libLookup"><xsl:with-param name="input" select="notification_data/item/library_name"/></xsl:call-template>
+              </xsl:with-param>
+            </xsl:call-template>
+            <xsl:if test="contains(notification_data/organization_unit/name, 'Madison')">
+              <div style="font-size:25px; font-weight: bold; font-family:oshkosh; position: fixed; bottom: 0; padding-bottom: 16px;" align="left">nosidaM-WU</div><br />
+            </xsl:if></p>
+            <p></p>
+          <!--p style="font-size:14px; font-family:oshkosh; position: absolute; bottom: 0; padding-bottom: 2px;" align="left">:oT nruteR</p-->
+        </div>
+      </xsl:when>
+      <xsl:otherwise>
+        <div class="abs_foot" style="transform: rotate(180deg); -webkit-transform: rotate(180deg); margin: 0 1em; padding: 0 1em">
+          <!--p style="font-size:14px;  position: fixed; bottom: 0;" align="left">Return to:</p--><br />
+          <p align="left" style="font-size:25px; font-weight: bold; padding-bottom: 16px">
+            <xsl:if test="contains(notification_data/organization_unit/name, 'Madison')">
+              UW-Madison<br/>
+            </xsl:if>
+            <xsl:call-template name="libLookup">
+              <xsl:with-param name="input" select="notification_data/item/library_name"/>
+            </xsl:call-template>
+          </p>
+        </div>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
 	<!-- Mail Footer: Displays return address and OCLC symbol -->
 	<xsl:template name="footer_mail">
-		<div style="border:1px solid black; padding:15px; width: 50%">
+		<div style="border:1px solid black; padding:15px; font-size: 12px; float:right; width: 35%">
 			Return To:<br/>
 				<xsl:value-of select="$oclc_symbol"/> / <xsl:value-of select="/notification_data/organization_unit/code"/><br/>
 				<xsl:copy-of select="$mail_return_address"/>
 		</div>
 		<br />
-		<!-- <div style="position: absolute; bottom: 16px; width: 50%; border: 1px solid black; padding: 10px; font-size: 26.7px;"> -->
+		<!--div style="position: absolute; bottom: 0; float:left; width: 40%; border: 1px solid black; padding: 10px; font-size: 26.7px;"-->
 			<!-- Return Address Section -->
-			<!-- <div style="padding-bottom: 16px; border-bottom: 1px solid black;"> 
+			<!--div style="padding-bottom: 12px; font-size: 12px; border-bottom: 1px solid black;"> 
 				<xsl:copy-of select="$mail_return_address"/>
 			</div-->
 
 			<!-- Recipient Section -->
-			<!-- <div style="padding: 10px 12.8px; font-size: 20px;"> 
-				TO:<br />
+			<!--div style="padding: 10px 12.8px; font-size: 12px;"> 
 				<b><xsl:value-of select="notification_data/partner_name"/></b><br />
 				<xsl:for-each select="notification_data/partner_shipping_info_list/partner_shipping_info"-->
 					<!-- Loop through address1-5, skipping blanks -->
@@ -177,8 +183,8 @@
 					</xsl:if>
 					<xsl:value-of select="country_display"/>
 				</xsl:for-each>
-			</div>
-		</div-->
+			</div-->
+		<!--/div-->
 	</xsl:template>
 
 	<!-- Minitex Footer: Currently empty -->
@@ -198,7 +204,7 @@
 	<xsl:template match="/">
 		<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/1999/xhtml">
 
-			<!-- BEGIN global head -->
+			<!-- BEGIN global head for users with the new styles-->
 			<xsl:call-template name="systemHeader"/>
 			<!-- END global head -->
 		
@@ -213,131 +219,142 @@
 									<td>
 										<xsl:choose>
 											
-											<!-- ========================================================================== -->
-											<!--   Personal Delivery                                                        -->
-											<!-- ========================================================================== -->
-											<xsl:when test="$partner_type = 'PERSONAL_DELIVERY'">
-											<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-												<tr>
-												<td style="text-align: left;">
-													<h2 style="margin: 16px 0; font-size: 16px; font-weight: bold;">@@supplied_to@@:</h2>
-												</td>
-												</tr>
-												<tr>
-												<td style="text-align: left;">
-													<h2 style="margin: 16px 0; font-size: 32px; font-weight: bold;">
-													<xsl:value-of select="notification_data/partner_name"/> UW-Eau Claire - Personal Delivery
-													</h2>
-												</td>
-												</tr>
-											</table>
-											</xsl:when>
-
-
-
-
-
-											<!-- ========================================================================== -->
-											<!--   UW Campus Delivery (includes Madison)                                    -->
-											<!--   Uses original UW lookup logic with added Madison handling          		-->
-											<!-- ========================================================================== -->
-											<xsl:when test="$partner_type = 'UW'">
-												<xsl:call-template name="header_redbox">
-													<xsl:with-param name="lib">
-														<!-- Add "UW-Madison -" so it doesn't just say Memorial Library -->
-														<xsl:if test="starts-with(notification_data/partner_code, '01UWI_MAD')">UW-Madison - <br/>||</xsl:if>
-														<xsl:call-template name="libLookup">
-															<xsl:with-param name="input">
-																<xsl:variable name="pickup" select="substring-before(substring-after(/notification_data/incoming_request/note, 'Pickup at: '), '||')" />
-																<xsl:if test="$pickup != ''"><xsl:value-of select="$pickup" />||</xsl:if>
-																<xsl:call-template name="GetLastSegment">
-																	<xsl:with-param name="value" select="notification_data/incoming_request/note" />
-																	<xsl:with-param name="separator" select="'||'" />
-																</xsl:call-template>
-															</xsl:with-param>
-														</xsl:call-template>
-													</xsl:with-param>
-												</xsl:call-template>
-											</xsl:when>
-
+							<!-- ========================================================================== -->
+							<!--   Personal Delivery                                                        -->
+							<!-- ========================================================================== -->
+						<xsl:when test="$partner_type = 'PERSONAL_DELIVERY'">
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tr>
+                          <td style="text-align: left;">
+                            <h2 style="margin: 16px 0; font-size: 16px; font-weight: bold;">@@supplied_to@@:</h2>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td style="text-align: left;">
+                            <h2 style="margin: 16px 0; font-size: 32px; font-weight: bold;">
+                            <xsl:value-of select="notification_data/partner_name"/> UW-Eau Claire - Personal Delivery
+                            </h2>
+                          </td>
+                          </tr>
+                        </table>
+						</xsl:when>
 											
-											<!-- ========================================================================== -->
-											<!--   UW POD Lookups                                                           -->
-											<!--   Additional matching for UW campuses in PODs                              -->
-											<!--   Could eventually be merged into libLookup     	                        -->
-											<!-- ========================================================================== -->
-											<xsl:when test="$partner_type = 'UW_POD'">
-												<xsl:call-template name="header_redbox">
-													<xsl:with-param name="lib">
-														<xsl:variable name="partner">
-															<xsl:choose>
-																<xsl:when test="/notification_data/partner_name = 'RAPID'">
-																	<xsl:value-of select="/notification_data/incoming_request/borrowing_institution" />
-																</xsl:when>
-																<xsl:otherwise>
-																	<xsl:value-of select="/notification_data/partner_name" />
-																</xsl:otherwise>
-															</xsl:choose>
-														</xsl:variable>
-														<xsl:choose>
-															<!--<xsl:when test="contains($partner, 'Memorial')">UW-Madison -<br />||Memorial </xsl:when>    -->
-															<xsl:when test="contains($partner, 'Madison') or contains($partner, 'ILL')">
-																UW-Madison -||<br/>
-																<xsl:variable name="pickup">
-																	<xsl:choose>
-																		<xsl:when test="substring-after(/notification_data/incoming_request/note, 'Pickup at: ') != ''">
-																			<xsl:value-of select="substring-after(/notification_data/incoming_request/note, 'Pickup at: ')" />
-																		</xsl:when>
-																		<xsl:when test="/notification_data/incoming_request/borrowing_library != ''">
-																			<xsl:value-of select="/notification_data/incoming_request/borrowing_library" />
-																		</xsl:when>
-																		<xsl:otherwise>
-																			____________
-																		</xsl:otherwise>
-																	</xsl:choose>
-																</xsl:variable> 
-																<xsl:value-of select="$pickup" />
-															</xsl:when>
-															<xsl:when test="contains($partner, 'Fox Cities Library')">UW-Fox Cities</xsl:when>
-															<xsl:when test="contains($partner, 'Oshkosh')">UW-Oshkosh</xsl:when>
-															<xsl:when test="contains($partner, 'Polk Library')">UW-Oshkosh</xsl:when>
-															<xsl:when test="contains($partner, 'UW-Oshkosh Library')">UW-Oshkosh</xsl:when>
-															<xsl:when test="contains($partner, 'Barron Library')">UW-Barron</xsl:when>
-															<xsl:when test="contains($partner, 'McIntyre Library')">UW-Eau Claire</xsl:when>
-															<xsl:when test="contains($partner, 'Sheboygan Library')">UW-Sheboygan</xsl:when>
-															<xsl:when test="contains($partner, 'Green Bay Library')">UW-Green Bay</xsl:when>
-															<xsl:when test="contains($partner, 'Green Bay')">UW-Green Bay</xsl:when>
-															<xsl:when test="contains($partner, 'River Falls')">UW-River Falls</xsl:when>
-															<xsl:when test="contains($partner, 'Parkside')">UW-Parkside</xsl:when>
-															<xsl:when test="contains($partner, 'Rock County Library')">UW-Rock County</xsl:when>
-															<xsl:when test="contains($partner, 'Whitewater Library')">UW-Whitewater</xsl:when>
-															<xsl:when test="contains($partner, 'Wausau Library')">UW-Wausau</xsl:when>
-															<xsl:when test="contains($partner, 'Marshfield Library')">UW-Marshfield</xsl:when>
-															<xsl:when test="contains($partner, 'Stevens Point')">UW-Stevens Point</xsl:when>
-															<xsl:otherwise>  
-																<xsl:if test="notification_data/incoming_request/borrowing_institution">
-																	<xsl:value-of select="notification_data/incoming_request/borrowing_institution"/>
-																</xsl:if>
-																<xsl:if test="notification_data/partner_name">
-																	||<xsl:value-of select="notification_data/partner_name"/>
-																</xsl:if>
-															</xsl:otherwise>
-														</xsl:choose>
-													</xsl:with-param>
-												</xsl:call-template>
-											</xsl:when>
+                      <!-- ========================================================================== -->
+                      <!--   UW Campus Delivery (includes Madison)                                    -->
+                      <!--   Uses original UW lookup logic with added Madison handling                -->
+                      <!-- ========================================================================== -->
+                      <xsl:when test="$partner_type = 'UW'">
+                        <xsl:call-template name="header_redbox">
+                          <xsl:with-param name="lib">
 
-	
-											<!-- ========================================================================== -->
-											<!--   SWITCH Redbox Delivery                                                   -->
-											<!-- ========================================================================== -->
-											<xsl:when test="$partner_type = 'SWITCH'">
-												<xsl:call-template name="header_redbox">
-													<xsl:with-param name="lib">
-														SWITCH -<br /><xsl:value-of select="normalize-space(substring-after(notification_data/partner_name, ('-')))"/>
-													</xsl:with-param>
-												</xsl:call-template>
-											</xsl:when>
+                           <xsl:choose>
+                               
+                         <!-- If partner is UW-Madison, print "UW-Madison" and optional pickup -->
+                            <xsl:when test="starts-with(notification_data/partner_code, '01UWI_MAD')">
+                              <!-- compute pickup once -->
+                              <xsl:variable name="note" select="/notification_data/incoming_request/note"/>
+                              <xsl:variable name="pickup">
+                                <xsl:call-template name="pickup">
+                                  <xsl:with-param name="note" select="$note"/>
+                                  <xsl:with-param name="borrowing-library"
+                                                  select="/notification_data/incoming_request/borrowing_library"/>
+                                </xsl:call-template>
+                              </xsl:variable>
+
+                              <xsl:text>UW-Madison</xsl:text>
+                              <xsl:if test="normalize-space($pickup) != ''">
+                                <xsl:text> - </xsl:text>
+                                <xsl:value-of select="normalize-space($pickup)"/>
+                              </xsl:if>
+                              <br/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                            <!-- Then show the destination library name as before -->
+                            <xsl:call-template name="libLookup">
+                              <xsl:with-param name="input" select="notification_data/partner_name"/>
+                            </xsl:call-template>
+                            </xsl:otherwise>
+                            </xsl:choose>
+                          </xsl:with-param>
+                        </xsl:call-template>
+                      </xsl:when>
+
+                        <!-- ========================================================================== -->
+					    <!--  UWs in the pods                                                    		-->
+						<!-- ========================================================================== -->
+            
+                      <xsl:when test="$partner_type = 'UW_POD'">
+                        <xsl:call-template name="header_redbox">
+                          <xsl:with-param name="lib">
+                            <xsl:variable name="partner">
+                              <xsl:choose>
+                                <xsl:when test="/notification_data/partner_name = 'RAPID'">
+                                  <xsl:value-of select="/notification_data/incoming_request/borrowing_institution" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                  <xsl:value-of select="/notification_data/partner_name" />
+                                </xsl:otherwise>
+                              </xsl:choose>
+                            </xsl:variable>
+                            <xsl:choose>
+                              <xsl:when test="contains($partner, 'Madison')">
+                                <xsl:variable name="note" select="/notification_data/incoming_request/note"/>
+                                <xsl:variable name="pickup">
+                                  <xsl:call-template name="pickup">
+                                    <xsl:with-param name="note" select="$note"/>
+                                    <xsl:with-param name="borrowing-library"
+                                        select="/notification_data/incoming_request/borrowing_library"/>
+                                  </xsl:call-template>
+                                </xsl:variable>
+                                <xsl:text>UW-Madison</xsl:text>
+                                <xsl:if test="normalize-space($pickup) != ''">
+                                  <xsl:text> - </xsl:text>
+                                  <xsl:value-of select="normalize-space($pickup)"/>
+                                </xsl:if>
+                                <br/>
+                              </xsl:when>
+
+                              <xsl:when test="contains($partner, 'Fox Cities Library')">UW-Fox Cities</xsl:when>
+                              <xsl:when test="contains($partner, 'Oshkosh')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'Polk Library')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'UW-Oshkosh Library')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'Barron Library')">UW-Barron</xsl:when>
+                              <xsl:when test="contains($partner, 'McIntyre Library')">UW-Eau Claire</xsl:when>
+                              <xsl:when test="contains($partner, 'Sheboygan Library')">UW-Sheboygan</xsl:when>
+                              <xsl:when test="contains($partner, 'Green Bay Library')">UW-Green Bay</xsl:when>
+                              <xsl:when test="contains($partner, 'Green Bay')">UW-Green Bay</xsl:when>
+                              <xsl:when test="contains($partner, 'River Falls')">UW-River Falls</xsl:when>
+                              <xsl:when test="contains($partner, 'Parkside')">UW-Parkside</xsl:when>
+                              <xsl:when test="contains($partner, 'Rock County Library')">UW-Rock County</xsl:when>
+                              <xsl:when test="contains($partner, 'Whitewater Library')">UW-Whitewater</xsl:when>
+                              <xsl:when test="contains($partner, 'Wausau Library')">UW-Wausau</xsl:when>
+                              <xsl:when test="contains($partner, 'Marshfield Library')">UW-Marshfield</xsl:when>
+                              <xsl:when test="contains($partner, 'Stevens Point')">UW-Stevens Point</xsl:when>
+
+                              <xsl:otherwise>  
+                                <xsl:if test="notification_data/incoming_request/borrowing_institution">
+                                  <xsl:value-of select="notification_data/incoming_request/borrowing_institution"/>
+                                </xsl:if>
+                                <xsl:if test="notification_data/partner_name">
+                                  ||<xsl:value-of select="notification_data/partner_name"/>
+                                </xsl:if>
+                              </xsl:otherwise>
+                            </xsl:choose>
+                          </xsl:with-param>
+                        </xsl:call-template>
+                      </xsl:when>
+   
+
+						<!-- ========================================================================== -->
+						<!--   SWITCH Redbox Delivery                                                   -->
+						<!-- ========================================================================== -->
+									<xsl:when test="$partner_type = 'SWITCH'">
+									    <xsl:call-template name="header_redbox">
+											<xsl:with-param name="lib">
+												SWITCH -<br /><xsl:value-of select="normalize-space(substring-after(notification_data/partner_name, ('-')))"/>
+											</xsl:with-param>
+										</xsl:call-template>
+									</xsl:when>
 
 
 											<!-- ========================================================================== -->
@@ -347,7 +364,7 @@
 											<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 												<tr>
 												<td style="font-size: 16px; font-weight: normal; padding-bottom: 10px;">
-													Route via Red Box<br />
+													Route via Red Box or Mail<br />
 													Return this slip with the item.
 												</td>
 												</tr>
@@ -416,6 +433,7 @@
 															<xsl:when test="contains(notification_data/partner_name, 'MORRIS Briggs')">MNX</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'DULUTH Martin')">MND</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'CROOKSTON Moe')">MCR</xsl:when>
+														    <xsl:when test="contains(notification_data/partner_name, 'TC Law')">MLL</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'University of Minnesota')">MNU</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Minitex')">MII</xsl:when>
 														</xsl:choose>
@@ -528,28 +546,6 @@
 
 
 	<!-- ========================================================================= -->
-	<!--   GetLastSegment Template                                                 -->
-	<!--   Recursively returns the last segment of a string, based on a separator  -->
-	<!--   Example: "foo.bar.baz" with "." returns "baz"                           -->
-	<!-- ========================================================================= -->
-	<xsl:template name="GetLastSegment">
-		<xsl:param name="value" />
-		<xsl:param name="separator" select="'.'" />
-		<xsl:choose>
-			<xsl:when test="contains($value, $separator)">
-				<xsl:call-template name="GetLastSegment">
-					<xsl:with-param name="value" select="substring-after($value, $separator)" />
-					<xsl:with-param name="separator" select="$separator" />
-				</xsl:call-template>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:value-of select="$value" />
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
-
-
-	<!-- ========================================================================= -->
 	<!--   Reverse Template                                                        -->
 	<!--   Recursively reverses a string                                           -->
 	<!--   Example: "ABC" becomes "CBA"                                            -->
@@ -623,7 +619,7 @@
 		<b>@@author@@: </b><xsl:value-of select="notification_data/metadata/author"/><br />
 		<xsl:if test="notification_data//metadata/issn != ''">
 			<b>@@issn@@: </b><xsl:value-of select="notification_data/metadata/issn"/><br />
-		</xsl:if>
+		</xsl:if></p>
 		<!--
 		<xsl:if test="notification_data/metadata/isbn != ''">
 			<b>@@isbn@@: </b><xsl:value-of select="notification_data/items/physical_item_display_for_printing/isbn"/><br />
@@ -680,7 +676,6 @@
 			<b>@@issue@@: </b>
 			<xsl:value-of select="notification_data/metadata/issue"/><br />
 		</xsl:if>
-
 		<xsl:if test="notification_data/incoming_request/format">
 			<b>@@format@@: </b>
 			<xsl:value-of select="notification_data/incoming_request/format"/> -
@@ -699,8 +694,95 @@
 		<xsl:otherwise>
 			<xsl:value-of select="notification_data/incoming_request/note"/>
 		</xsl:otherwise>
-		</xsl:choose></p>
-		
-	</xsl:template>
+		</xsl:choose>
+	
+</xsl:template>
 
+<xsl:template name="pickup">
+  <xsl:param name="note"/>
+  <xsl:param name="borrowing-library"/>
+
+  <!-- Uppercase copy of the note for case-insensitive checks -->
+  <xsl:variable name="NOTE_UP"
+                select="translate($note,
+                                   'abcdefghijklmnopqrstuvwxyz',
+                                   'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+
+  <!-- Branch 1: note contains 'PICKUP AT:' (any casing) -->
+  <xsl:variable name="has-pickup-at"
+                select="contains($NOTE_UP, 'PICKUP AT:')"/>
+
+  <xsl:variable name="after-pickup">
+    <xsl:choose>
+      <!-- Try common casings so substring-after finds the right split in XSLT 1.0 -->
+      <xsl:when test="$has-pickup-at">
+        <xsl:variable name="a1" select="substring-after($note, 'Pickup at:')"/>
+        <xsl:variable name="a2" select="substring-after($note, 'PICKUP AT:')"/>
+        <xsl:variable name="a3" select="substring-after($note, 'pickup at:')"/>
+        <xsl:choose>
+          <xsl:when test="string-length($a1) &gt; 0"><xsl:value-of select="$a1"/></xsl:when>
+          <xsl:when test="string-length($a2) &gt; 0"><xsl:value-of select="$a2"/></xsl:when>
+          <xsl:otherwise><xsl:value-of select="$a3"/></xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+
+      <!-- Branch 2: fall back to your last-segment UW parsing -->
+      <xsl:otherwise>
+        <xsl:variable name="last-segment">
+          <xsl:call-template name="getLastSegment">
+            <xsl:with-param name="text" select="$note"/>
+            <xsl:with-param name="delimiter" select="'||'"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:value-of select="normalize-space($last-segment)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- If there’s a '||' after the pickup text, trim it; otherwise just normalize -->
+  <xsl:variable name="pickup-clean">
+    <xsl:choose>
+      <xsl:when test="contains($after-pickup, '||')">
+        <xsl:value-of select="normalize-space(substring-before($after-pickup, '||'))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="normalize-space($after-pickup)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- Final fallback to borrowing-library if we still have nothing -->
+  <xsl:choose>
+    <xsl:when test="string-length(normalize-space($pickup-clean)) &gt; 0">
+      <xsl:value-of select="$pickup-clean"/>
+    </xsl:when>
+    <xsl:when test="normalize-space($borrowing-library) != ''">
+      <xsl:value-of select="normalize-space($borrowing-library)"/>
+    </xsl:when>
+    <xsl:otherwise>____________</xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<xsl:template name="getLastSegment">
+    <xsl:param name="text"/>
+    <xsl:param name="delimiter"/>
+    
+    <xsl:choose>
+        <xsl:when test="contains(substring-after($text, $delimiter), $delimiter)">
+            <xsl:call-template name="getLastSegment">
+                <xsl:with-param name="text" select="substring-after($text, $delimiter)"/>
+                <xsl:with-param name="delimiter" select="$delimiter"/>
+            </xsl:call-template>
+        </xsl:when>
+        <xsl:when test="contains($text, $delimiter)">
+            <xsl:value-of select="substring-after($text, $delimiter)"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$text"/>
+        </xsl:otherwise>
+    </xsl:choose>
+    
+</xsl:template>
+	
 </xsl:stylesheet>
