@@ -219,11 +219,11 @@
 
     </xsl:template>
 
-    <xsl:template name="libraryLogo">
+   <xsl:template name="libraryLogo">
         <tr style="display: none;" aria-hidden="true">
             <td>
-                <a href="https://www.library.wisc.edu/" style="color: #0073CE;" target="_blank">
-                    <img src="cid:logo.jpg" alt="University of Wisconsin-Madison Libraries Logo" width="auto" height="20"/>
+                <a href="https://www.wisconsin.edu" style="color: #005777;" target="_blank">
+                    <img src="cid:logo.jpg" alt="Universities of Wisconsiny of Wisconsin Logo" width="auto" height="20"/>
                 </a>
             </td>
         </tr>
@@ -232,8 +232,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                         <td align="center" valign="top" style="padding: 20px 0;">
-                            <a href="https://www.library.wisc.edu/" style="color: #0073CE;" target="_blank">
-                                <img src="https://web.lib.wisc.edu/a/images/libraries-inverted-vertical@2x.png" width="200" height="134" alt="University of Wisconsin-Madison Libraries" style="border: 0;"/>
+                            <a href="https://www.wisconsin.edu/" style="color: #005777;" target="_blank">
+                                <img src="https://www.wisconsin.edu/brand-style-guide/wp-content/uploads/sites/300/2023/10/UW-logo-color-e1725889687941-1024x273.png" width="200" height="134" alt="University of Wisconsin-Madison Libraries" style="border: 0;"/>
                             </a>
                         </td>
                     </tr>
@@ -276,7 +276,7 @@
             <tr>
                 <td style="padding-bottom: 40px; width: 500px; padding-top: 30px;">
                     <p style="padding: 0px 0;">Sincerely,</p>
-                    <p style="margin: 5px 0px 10px 0; padding-bottom: 10px; border-bottom: 2px solid #e5e5e5;">UW-Madison Libraries Circulation Support</p>
+                    <p style="margin: 5px 0px 10px 0; padding-bottom: 10px; border-bottom: 2px solid #e5e5e5;">UW Libraries Circulation Support</p>
                     <p style="padding-bottom: 5px;">For assistance, please either:</p>
                     <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation">
                         <tr>
