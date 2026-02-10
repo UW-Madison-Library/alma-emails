@@ -48,6 +48,8 @@
 			<xsl:when test="starts-with(/notification_data/partner_name, 'University of Wisconsin')">UW_POD</xsl:when>
 			<xsl:when test="starts-with(/notification_data/incoming_request/additional_borrower_information, 'Univ') and contains(/notification_data/incoming_request/additional_borrower_information, 'Wisc')">UW_POD</xsl:when>
 			<xsl:when test="starts-with(/notification_data/incoming_request/pod_id, '537922422830000041')">SWITCH</xsl:when>
+	        <xsl:when test="starts-with(/notification_data/incoming_request/external_request_id, '01SLCO')">SWITCH</xsl:when>
+			<xsl:when test="starts-with(/notification_data/partner_code, '01SLCO')">SWITCH</xsl:when>
 			<xsl:when test="starts-with(/notification_data/partner_code, 'A-G:STWI')">WI_PUBLIC</xsl:when>
 			<xsl:when test="contains(/notification_data/incoming_request/pod_id, '381639321420000041')">MINITEX</xsl:when>
 			<xsl:when test="contains(notification_data/incoming_request/note, 'Personal Delivery')">PERSONAL_DELIVERY</xsl:when>
@@ -204,10 +206,24 @@
 	<xsl:template match="/">
 		<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/1999/xhtml">
 
-			<!-- BEGIN global head for users with the new styles-->
+			<!-- BEGIN global head for users with the new styles (comment out next line if you have not added new styles)-->
 			<xsl:call-template name="systemHeader"/>
 			<!-- END global head -->
-		
+			<!-- BEGIN uncomment out this block if you had to comment out the systemHeader line-->
+				<!--head>
+	    		<xsl:call-template name="generalStyle" />
+    				<style>
+					.barcode { font-family:"Barcode 3 of 9", "3 of 9 Barcode", "Libre Barcode 39"; font-size: 18px; padding-left: 2em }
+					.messageBody, .abs_foot, .foot {width: 45% }
+					h1 {  }
+					@media print {
+				    html { height: 95%; }
+				    body { height: 100%; }
+					.abs_foot { position: fixed; bottom: 5mm; left: 0; }
+						}
+	   			 </style>
+      		  </head-->
+		<!-- END special comment block needed for old styles.xsl-->
 			<body id="body" class="body" style="padding: 0 36px;">
 				<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
 					<tr>
@@ -326,10 +342,14 @@
                               <xsl:when test="contains($partner, 'River Falls')">UW-River Falls</xsl:when>
                               <xsl:when test="contains($partner, 'Parkside')">UW-Parkside</xsl:when>
                               <xsl:when test="contains($partner, 'Rock County Library')">UW-Rock County</xsl:when>
-                              <xsl:when test="contains($partner, 'Whitewater Library')">UW-Whitewater</xsl:when>
+                              <xsl:when test="contains($partner, 'Whitewater')">UW-Whitewater</xsl:when>
                               <xsl:when test="contains($partner, 'Wausau Library')">UW-Wausau</xsl:when>
                               <xsl:when test="contains($partner, 'Marshfield Library')">UW-Marshfield</xsl:when>
                               <xsl:when test="contains($partner, 'Stevens Point')">UW-Stevens Point</xsl:when>
+							  <xsl:when test="contains($partner, 'UW Stout')">UW-Stout</xsl:when>
+                              <xsl:when test="contains($partner, 'La Crosse')">UW-La Crosse</xsl:when>
+							  <xsl:when test="contains($partner, 'Milwaukee')">UW-Milwaukee</xsl:when>
+							  <xsl:when test="contains($partner, 'Superior')">UW-Superior</xsl:when>
 
                               <xsl:otherwise>  
                                 <xsl:if test="notification_data/incoming_request/borrowing_institution">
