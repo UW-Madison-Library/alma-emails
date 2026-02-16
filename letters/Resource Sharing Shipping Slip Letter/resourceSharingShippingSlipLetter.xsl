@@ -445,7 +445,7 @@
 														<xsl:choose>
 															<xsl:when test="contains(notification_data/partner_name, 'Ireland Library')">SSE</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Keffer Library')">MNTMP</xsl:when>
-															<xsl:when test="contains(notification_data/partner_name, 'Thomas Law Library')">TL#</xsl:when>
+															<xsl:when test="contains(notification_data/partner_name, 'Thomas - Law Library')">TL#</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Shaughnessy-Frey Library')">MNT</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Bethel')">MNK</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Hamline')">MHA</xsl:when>
