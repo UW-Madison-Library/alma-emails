@@ -262,7 +262,7 @@
                       <xsl:when test="$partner_type = 'UW'">
                         <xsl:call-template name="header_redbox">
                           <xsl:with-param name="lib">
-
+							  <xsl:variable name="partner" select="/notification_data/partner_name"/>
                            <xsl:choose>
                                
                          <!-- If partner is UW-Madison, print "UW-Madison" and optional pickup -->
@@ -284,6 +284,28 @@
                               </xsl:if>
                               <br/>
                             </xsl:when>
+							
+							  <xsl:when test="contains($partner, 'Fox Cities Library')">UW-Fox Cities</xsl:when>
+                              <xsl:when test="contains($partner, 'Oshkosh')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'Polk Library')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'UW-Oshkosh Library')">UW-Oshkosh</xsl:when>
+                              <xsl:when test="contains($partner, 'Barron Library')">UW-Barron</xsl:when>
+                              <xsl:when test="contains($partner, 'McIntyre Library')">UW-Eau Claire</xsl:when>
+                              <xsl:when test="contains($partner, 'Sheboygan Library')">UW-Sheboygan</xsl:when>
+                              <xsl:when test="contains($partner, 'Green Bay Library')">UW-Green Bay</xsl:when>
+                              <xsl:when test="contains($partner, 'Green Bay')">UW-Green Bay</xsl:when>
+                              <xsl:when test="contains($partner, 'River Falls')">UW-River Falls</xsl:when>
+                              <xsl:when test="contains($partner, 'Parkside')">UW-Parkside</xsl:when>
+                              <xsl:when test="contains($partner, 'Rock County Library')">UW-Rock County</xsl:when>
+                              <xsl:when test="contains($partner, 'Whitewater')">UW-Whitewater</xsl:when>
+                              <xsl:when test="contains($partner, 'Wausau Library')">UW-Wausau</xsl:when>
+                              <xsl:when test="contains($partner, 'Marshfield Library')">UW-Marshfield</xsl:when>
+                              <xsl:when test="contains($partner, 'Stevens Point')">UW-Stevens Point</xsl:when>
+							  <xsl:when test="contains($partner, 'UW Stout')">UW-Stout</xsl:when>
+                              <xsl:when test="contains($partner, 'La Crosse')">UW-La Crosse</xsl:when>
+							  <xsl:when test="contains($partner, 'Milwaukee')">UW-Milwaukee</xsl:when>
+							  <xsl:when test="contains($partner, 'Superior')">UW-Superior</xsl:when>
+							 
                             <xsl:otherwise>
                             <!-- Then show the destination library name as before -->
                             <xsl:call-template name="libLookup">
@@ -291,10 +313,10 @@
                             </xsl:call-template>
                             </xsl:otherwise>
                             </xsl:choose>
+							 </xsl:variable>
                           </xsl:with-param>
                         </xsl:call-template>
                       </xsl:when>
-
                         <!-- ========================================================================== -->
 					    <!--  UWs in the pods                                                    		-->
 						<!-- ========================================================================== -->
