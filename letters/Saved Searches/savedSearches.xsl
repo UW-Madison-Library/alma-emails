@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <xsl:include href="style.xsl"/>
+
+    <xsl:template match="/">
+        <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/1999/xhtml">
+
+            <!-- BEGIN global head -->
+            <xsl:call-template name="libraryHeader"/>
+            <!-- END global head -->
+
+            <body id="body" class="darkmode2 body" style="background-color:#F5F5F5;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #F5F5F5;">
+                    <tr>
+                        <td>
+                            <!-- Start of email -->
+                            <table role="presentation" class="darkmode2" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #F5F5F5;">
+                                <xsl:call-template name="libraryLogo"/>
+
+                                <!-- Begin Email Content-->
+		
+                				<tr>
+                					<td style="background-color: #53738c; padding: 0 15px; color: #fff; box-shadow: inset 0 3px 10px -2px rgba(0,0,0,0.3)">
+                						<h2 style="font-weight: 600; margin: 30px 0 10px 0;">
+                							<xsl:value-of select="/notification_data/alert_title"/>
+                						</h2>
+                						<h3 style="font-size: 1rem; margin: 0 0 30px 0; font-weight: normal;">
+                							<xsl:value-of select="/notification_data/alert_heading"/>
+                							<a style="font-style: italic; text-decoration: none;">
+                								<xsl:attribute name="href">
+                									<xsl:value-of select="/notification_data/link/node()"/>
+                								</xsl:attribute>
+                								<xsl:value-of select="/notification_data/search_query"/>
+                							</a>
+                						</h3>
+                					</td>
+                				</tr>
+                				<tr>
+                					<td style="background-color: #f3f3f3; padding: 15px; box-shadow: inset 0 3px 10px -2px rgba(0,0,0,0.3); font-style: italic;">
+                						<h3 style="font-size: 15px; margin: 0; font-weight: normal;">
+                							<xsl:value-of select="/notification_data/alert_subtitle"/>
+                						</h3>
+                					</td>
+                				</tr>
+                				<tr>
+                					<td style="background-color: #f3f3f3; padding: 15px 0; box-shadow: inset 0 4px 5px -2px rgba(0,0,0,0.3)">
+                						<table style="width: 100%">
+                							<xsl:for-each select="/notification_data/items/saved_searches_letter_item">
+                								<tr style="background-color: #fff; text-decoration: none;">
+                									<td style="padding: 15px 15px; position: relative;">
+                										<span style="text-transform: uppercase; letter-spacing: .07em; font-weight: 600; font-size: .8em; color: #6d6d6d">
+                											<xsl:value-of select="type" disable-output-escaping="yes"/>
+                										</span>
+                										<br/>
+                										<a style="display: block; margin: 5px 0; text-decoration: none; color: #44707b; font-size: 1.4em; font-weight: 600;">
+                											<xsl:attribute name="href">
+                												<xsl:value-of select="url" disable-output-escaping="yes"/>
+                											</xsl:attribute>
+                											<xsl:value-of select="title" disable-output-escaping="yes"/>
+                										</a>
+                										<br/>
+                										<span style="color: #3a3a3a; font-weight: 400; font-size: .65rem;">
+                											<xsl:value-of select="creator" disable-output-escaping="yes"/>
+                										</span>
+                									</td>
+                								</tr>
+                							</xsl:for-each>
+                						</table>
+                					</td>
+                				</tr>
+                				<tr>
+                					<td style="background-color: #4d6b82; text-align:center; padding: 15px">
+                							<a style="color: #fff">
+                								<xsl:attribute name="href">
+                									<xsl:value-of select="/notification_data/alert_unsubscribe_link/node()"/>
+                								</xsl:attribute>
+                								<xsl:value-of select="/notification_data/alert_unsubscribe"/>
+                							</a>
+                					</td>
+                				</tr>
+			                </table>
+			               </td>
+                		</tr>
+                	</table>	
+		        </body>
+		</html>
+	</xsl:template>
+</xsl:stylesheet>

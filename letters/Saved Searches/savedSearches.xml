@@ -1,0 +1,13 @@
+<notification_data>
+    <alert_heading>{0} new items found for the search query: {search query}</alert_heading>
+    <alert_subtitle>Note that {0} items are included in this email.</alert_subtitle>
+    <alert_title>List of New Items for your Saved Search</alert_title>
+    <alert_unsubscribe>Click here to unsubscribe</alert_unsubscribe>
+    <items>
+        <saved_searches_letter_item>
+            <creator>Creator</creator>
+            <title>Title</title>
+            <type>Type</type>
+        </saved_searches_letter_item>
+    </items>
+</notification_data>
