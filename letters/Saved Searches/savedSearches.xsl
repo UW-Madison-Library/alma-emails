@@ -21,7 +21,7 @@
                                 <!-- Begin Email Content-->
 		
                 				<tr>
-                					<td style="background-color: #53738c; padding: 0 15px; color: #fff; box-shadow: inset 0 3px 10px -2px rgba(0,0,0,0.3)">
+                					<td style="background-color: #6d7072; padding: 0 15px; color: #fff; box-shadow: inset 0 3px 10px -2px rgba(0,0,0,0.3)">
                 						<h2 style="font-weight: 600; margin: 30px 0 10px 0;">
                 							<xsl:value-of select="/notification_data/alert_title"/>
                 						</h2>
@@ -70,7 +70,7 @@
                 					</td>
                 				</tr>
                 				<tr>
-                					<td style="background-color: #4d6b82; text-align:center; padding: 15px">
+                					<td style="background-color: #6d7072; text-align:center; padding: 15px">
                 							<a style="color: #fff">
                 								<xsl:attribute name="href">
                 									<xsl:value-of select="/notification_data/alert_unsubscribe_link/node()"/>
