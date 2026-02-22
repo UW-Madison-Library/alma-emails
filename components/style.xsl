@@ -223,7 +223,7 @@
         <tr style="display: none;" aria-hidden="true">
             <td>
                 <a href="https://www.wisconsin.edu" style="color: #005777;" target="_blank">
-                    <img src="cid:logo.jpg" alt="Universities of Wisconsiny of Wisconsin Logo" width="auto" height="20"/>
+                    <img src="cid:logo.jpg" alt="Universities of Wisconsin Logo" width="auto" height="20"/>
                 </a>
             </td>
         </tr>
