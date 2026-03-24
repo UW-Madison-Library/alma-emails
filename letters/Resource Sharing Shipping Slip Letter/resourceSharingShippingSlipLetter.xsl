@@ -393,11 +393,28 @@
 									<xsl:when test="$partner_type = 'SWITCH'">
 									    <xsl:call-template name="header_redbox">
 											<xsl:with-param name="lib">
-												SWITCH -<br /><xsl:value-of select="normalize-space(substring-after(notification_data/partner_name, ('-')))"/>
-											</xsl:with-param>
-										</xsl:call-template>
+							                  <xsl:variable name="partner" select="/notification_data/partner_name"/>
+											    <xsl:choose>
+											        <xsl:when test="contains($partner, '- Concordia University Library')">SWITCH - Concordia Univ</xsl:when>
+							                        <xsl:when test="contains($partner, '- CUW Library')">SWITCH - Concordia Univ</xsl:when>
+                                                    <xsl:when test="contains($partner, '- Wisconsin Lutheran College')">SWITCH - Wisconsin Lutheran College</xsl:when>
+							                        <xsl:when test="contains($partner, '- Mount Mary University')">SWITCH - Mount Mary University</xsl:when>
+							                        <xsl:when test="contains($partner, '- Saint Francis de Sales Seminary')">SWITCH - Saint Francis de Sales Seminary</xsl:when>
+							                        <xsl:when test="contains($partner, 'School of Theology')">SWITCH - Sacred Heart Seminary and School of Theology</xsl:when>
+                                                    <xsl:when test="contains($partner, '- Alverno College Library')">SWITCH - Alverno College Library</xsl:when>
+							                        <xsl:when test="contains($partner, '- MIAD Library')">SWITCH - MIAD Library</xsl:when>
+							                        <xsl:when test="contains($partner, 'Marquette')">Marquette Univ - Raynor Library</xsl:when>
+							 
+                                                    <xsl:otherwise>
+                                                     <!-- Then show the destination library name as before -->
+                                                      <xsl:call-template name="libLookup">
+                                                        <xsl:with-param name="input" select="notification_data/partner_name"/>
+                                                      </xsl:call-template>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+											    </xsl:with-param>
+									    	</xsl:call-template>
 									</xsl:when>
-
 
 											<!-- ========================================================================== -->
 											<!--   Wisconsin Public Libraries                                               -->
