@@ -313,7 +313,6 @@
                             </xsl:call-template>
                             </xsl:otherwise>
                             </xsl:choose>
-							 </xsl:variable>
                           </xsl:with-param>
                         </xsl:call-template>
                       </xsl:when>
