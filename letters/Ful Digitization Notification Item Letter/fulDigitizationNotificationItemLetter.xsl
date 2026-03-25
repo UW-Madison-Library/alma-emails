@@ -124,9 +124,19 @@
                                                                             This digital copy is for your personal use only. In accordance with copyright law, do not copy, share, or distribute it.<br/>
                                                                         </td>
                                                                     </tr>
+                                                                     <tr>
+                                                                        <td style="margin: 0; padding: 10px 0; vertical-align: top;">
+                                                                            <b>Please note: </b> We are committed to providing fast and fair access to information for everyone.
+                                                                        </td>
+                                                                    </tr>
                                                                     <tr>
                                                                         <td style="margin: 0; padding: 10px 0; vertical-align: top;">
-                                                                            If you need any help, have questions, or if you need this document to be machine-readable for a disability accommodation, please reply to this email.<br/>
+                                                                            To give you access to materials as quickly as possible, some items are delivered through automated systems. Because of this, some electronic resources may come from providers that do not fully meet accessibility standards.
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="margin: 0; padding: 10px 0; vertical-align: top;">
+                                                                            If you need help or have a disability accommodation request, please reply to this email.<br/>
                                                                         </td>
                                                                     </tr>
                                                                 </table>    
