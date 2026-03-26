@@ -36,7 +36,6 @@
                                                         <tr>
                                                             <td>
                                                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 20px;">
-                                                                    <xsl:if test="notification_data/message">
                                                                         <tr>
                                                                             <td>
                                                                                 Your recent request was picked up by your authorized person,
@@ -53,7 +52,6 @@
                                                                                             <xsl:value-of select="borrower/name"/>.
                                                                                         </xsl:otherwise>
                                                                                     </xsl:choose>
-                                                                                </xsl:for-each>
                                                                             </td>
                                                                         </tr>
                                                                         <tr style="padding-top: 20px;">
