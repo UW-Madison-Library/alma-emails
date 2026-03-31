@@ -424,13 +424,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <p>See https://account.library.wisc.edu/ for due date</p>
 
 <p>Use the enclosed pre-paid US Postal Service (USPS) mailer to return to:</p>x
-
+<!--Update your address here -->
+	
 Remote Delivery/ILL <br />
 Memorial Library <br />
 728 State St. Room B106B <br />
 Madison, WI 53706<br />
 
-<p>Or drop off the item at a campus library - see https://go.wisc.edu/OpenReturn for locations</p>
 </div>   
 
 <p></p>
@@ -707,8 +707,6 @@ Madison, WI 53706<br />
  <xsl:value-of select="notification_data/request/note"/><br />
     					
                                                  <p></p>
-                                                 <p align="right" style="font-size:14px;">UW-Madison Libraries participate in Open Return</p>
-                                                <p align="right" style="font-size:14px;">For more information see - https://go.wisc.edu/OpenReturn</p>
                                
 <div align="left" style="font-size:14px;">                                 
                                 			
@@ -1117,8 +1115,6 @@ Scannx Ex ID :<div style='font-size:35px;font-family:"3 of 9 Barcode"'>*<xsl:val
  <xsl:value-of select="notification_data/request/note"/><br />
     					
                                                  <p></p>
-                                                 <p align="right" style="font-size:14px;">UW-Madison Libraries participate in Open Return</p>
-                                                <p align="right" style="font-size:14px;">For more information see - https://go.wisc.edu/OpenReturn</p>
                                
 <div align="left" style="font-size:14px;">                                 
                                 			
