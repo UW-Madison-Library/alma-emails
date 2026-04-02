@@ -1,0 +1,19 @@
+/* Banner message to override Central Package */
+primo-explore::before {content:" Test Message for NDE"; display: inline-block; background:#8c5373; text-align:center; width:100%; font-weight:bold;} 
+
+/* change color scheme to be white with black font */
+.prm-secondary-color, prm-search-bookmark-filter .md-button, prm-topbar .top-nav-bar{
+    background-color: #F3F3F3;
+}
+
+* THIS HIDES THE TAGS FUNCTIONALITY IN THE RECORDS */ 
+/*.md-button[aria-label="Links"] {display: none;} */
+/*links {display: none;}*/
+prm-service-links a { display: none } /* suppress all Links */
+prm-service-links a[href*="madison.hosts.atlas-sys.com"] { display: initial; } /* show ILL link*/
+prm-service-links a[href*="report-a-problem"] { display: initial; } /* show report form */
+prm-service-links a[href*="https://www.library.wisc.edu/help/"] { display: initial; } /* show ask librarian */
+prm-service-links a[href*="/discovery/sourceRecord"] { display: initial; } /* show source record */
+
+/*fix permalink single record view*/
+prm-search-bar {background-color: #CCCCCC;}
