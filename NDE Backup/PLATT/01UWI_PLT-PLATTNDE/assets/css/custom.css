@@ -1,0 +1,39 @@
+
+/* Top navigation background color and bottom border */
+header {
+    background-color: #fff !important;
+    border-bottom: 5px solid #00447c !important;
+}
+
+/* This inverts the header icon colors to work on dark backgrounds.  Comment out if you use a light background color */
+/* 
+header li svg, header mat-select svg , header mat-icon svg {
+    filter: invert(1) brightness(5);
+} 
+*/
+
+/* Text colors on the top navigation */
+header li span, header mat-select span , header mat-icon span {
+    color: #000;
+}
+
+/* Library logo on the top left of the screen */
+nde-logo img {
+    height: initial;
+    margin-bottom: -5px;
+    padding: 0 15px 0  0px;
+}
+
+/* Background behind homepage search.  Place the image in the assets/images/background.png to your own. */
+/*
+.top-bar-background-image {
+    background-image: url(../images/background.png) !important; 
+}
+*/
+
+/* This is the colorization and blur of Exlibris background image */
+.custom-search-bar-container .background-overlay {
+    /* display: none; */  /* uncomment this attribute to hide the effects */
+    background-color: #762a05 !important;
+}
+
