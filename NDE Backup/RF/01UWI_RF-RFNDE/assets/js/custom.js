@@ -1,0 +1,1 @@
+console.log('Helo from custom js');
