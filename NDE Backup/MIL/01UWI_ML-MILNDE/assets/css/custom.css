@@ -1,0 +1,150 @@
+/* Custom mini UWM color scheme and font family*/
+:root {
+--sys-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+--sys-primary: #27729B;
+--sys-on-primary: #ffffff;
+--sys-background: #f8f8f8;
+--sys-outline: #202020;
+--sys-primary-container: #cccccc;
+--sys-on-primary-container: #202020;
+--sys-secondary: #4c4c4c;
+--sys-on-secondary: #ffffff;
+--sys-secondary-container: #d4d5d6;
+--sys-on-secondary-container: #202020;
+--sys-tertiary: #333333;
+--sys-on-tertiary: #ffffff;
+--sys-tertiary-container: #e9eaea;
+--sys-on-tertiary-container: #202020;
+--mdc-text-button-label-text-color: #27729B;
+}
+
+/* Also set the font family on html and body from Jodi@GB */
+html, body {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+/* Change overlay color for homepage image*/
+.custom-search-bar-container .background-overlay { 
+background: #000000 !important; 
+}
+
+/* Make Advanced Search button slightly larger */ 
+.advanced-search-button .mdc-button__label {
+  font-size: 1.125rem !important;
+}
+
+/* Make the Natural Language Search icon a bigger size */
+button[data-qa="natural-language-search-button"] mat-icon {
+    display: inline-block;       /* ensures transform works correctly */
+    transform: scale(1.25);       /* 1.25× larger */
+    transform-origin: center;    /* scale from the center of the icon */
+    transition: transform 0.2s ease-in-out; /* optional smooth scaling */
+}
+
+/* Make dropdown arrows in Search boxes, etc. dark gray */
+mat-icon[data-mat-icon-name="Arrow-down-filled"] svg path {
+    fill: #202020 !important;
+}	
+
+/* Do not change Main Menu labels to be uppercase */
+.main-menu-container .mdc-button {
+    --mdc-filled-button-label-text-transform: none !important;
+    --mdc-text-button-label-text-transform: none !important;
+}
+
+/* Make Main Menu labels slightly larger */
+.container .top-bar {
+        --mdc-text-button-label-text-size: 1.125rem !important;
+}
+
+/* Make "All Filters" in search results stand out tweaked by original from Jodi@GB */
+button#allFilterToggleButton.mdc-button.mat-mdc-button.mat-mdc-button-base {
+    box-shadow: inset 0 0 0 1.25px var(--sys-outline);
+    border-radius: .5rem;
+    font-weight: 700;
+}
+
+/* Make record titles in search results bigger and bolder from Jodi@GB */
+nde-record-title .record-title h3.mat-body-large,
+nde-record-title .record-title nde-highlight>span.mat-body-medium,
+nde-record-title .record-title nde-highlight>span.mat-body-medium .ctm-highlight {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/*Make Creator & Pub Date text bold */ 
+nde-record-main-details .light-text {     
+	font-weight: 700!important;   
+}
+
+/* Do not  make record type, OA status, peer reviewed status labels in brief search results uppercase (OFF FOR NOW)
+.record-indication.text-uppercase,
+.record-type.text-uppercase {
+    text-transform: none;
+} */
+
+/* Gold horizontal dividers */
+mat-divider.mat-divider-horizontal {
+  border-top: 1px solid #ffbd00 !important;
+}	
+
+/*Change the color of the bar above the brief search results, add a border, and make the text black */
+#resultsTopBarContainer.results-top-bar-container { 
+	background-color: #999999 !important; 
+	border: 1px solid #4c4c4c !important;
+	color: #000000 !important;
+}
+
+/* Make the num. of results per page text black in the bar above the brief search results */
+mat-select[data-qa="results_per_page"] {
+  color: #000000 !important;
+}
+
+/* Make the Save and Export All Results text black in the bar above the brief search results*/
+button[data-qa="save-and-export-all-dropdown"] mat-icon {
+  color: #000000 !important;
+}
+
+button[data-qa="save-and-export-all-dropdown"] .mdc-button__label {
+	color: #000000 !important;
+}
+
+/* Make the Export and Bookmark icons black in the bar above the brief search results */
+mat-icon[data-mat-icon-name="Export"] svg path,
+mat-icon[data-mat-icon-name="Bookmark"] svg path {
+    fill: #000000 !important;
+}	
+
+/* Change the color of the border around the brief search results */
+#searchResults.search-results-container { 
+	border: 1px solid #4c4c4c !important;
+}
+
+/* Change colors of 'Sign-in' box */
+.mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    background-color: #ffbd00 !important; 
+	border: 2px solid #4c4c4c !important;
+}
+mat-icon[data-mat-icon-name="Login"] svg path,
+mat-icon[data-mat-icon-name="Close-dialog"] svg path {
+    fill: #202020 !important;
+}	
+.mat-mdc-snack-bar-container .availability-button {
+  color: #000000 !important; 
+  text-decoration: underline; 
+}
+.mat-mdc-snack-bar-container .availability-button:hover {
+  color: #333333 !important; 
+  text-decoration: none;
+}
+
+/* Make the General Electronic Service (e.g. Report a Bad Link) icon 25% smaller */
+mat-icon[data-mat-icon-name="GES"] {
+  transform: scale(0.75);
+  transform-origin: center; /* Keeps it centered in its original spot */
+}
+
+/* Hide the container that links to the Get it from other institutions section */
+.item-level-request-msg-container {
+    display: none !important;
+}

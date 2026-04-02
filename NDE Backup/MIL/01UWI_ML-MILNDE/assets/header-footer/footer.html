@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive EM-Based Footer</title>
+  <style>
+    /* Reset margins and ensure full height */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1; /* Fill space above footer */
+    }
+
+    footer {
+      height: 3.125em; 
+      display: flex;
+      flex-direction: column;
+    }
+	
+.footer-top { height: 20%; background-color: #ffbd00; }
+.footer-middle { height: 60%; background-color: #4c4c4c; }
+.footer-bottom { height: 20%; background-color: #333333; }
+
+  </style>
+</head>
+<body>
+  <footer>
+    <div class="footer-top"></div>
+    <div class="footer-middle"></div>
+    <div class="footer-bottom"></div>
+  </footer>
+</body>
+</html>
