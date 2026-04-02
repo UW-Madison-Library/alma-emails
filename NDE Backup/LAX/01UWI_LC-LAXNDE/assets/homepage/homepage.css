@@ -1,0 +1,80 @@
+.murphy-home-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.murphy-home-card {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    background: #ffffff;
+    color: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.murphy-home-card h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    color: #730019;
+    font-size: 1.2rem;
+}
+
+.murphy-home-card p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.murphy-home-card p + p {
+    margin-top: .75rem;
+}
+
+.murphy-home-card ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin: .75rem 0 0 1.25rem;
+    padding-left: 1rem;
+}
+
+.murphy-home-card li {
+    display: list-item;
+    margin-bottom: .5rem;
+    line-height: 1.4;
+}
+
+.murphy-home-card li::marker {
+    color: #730019;
+}
+
+.murphy-home-card:hover,
+.murphy-home-card:focus-within {
+    box-shadow: 0 4px 12px rgba(0,0,0,.14);
+    transform: translateY(-2px);
+}
+
+.murphy-card-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .65rem 1rem;
+    background-color: #730019;
+    color: #ffffff;
+    border-radius: 999px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color .2s ease;
+}
+
+.murphy-card-button:hover,
+.murphy-card-button:focus {
+    background-color: #5d0014;
+}
+
+@media (max-width: 768px) {
+    .murphy-home-cards {
+        grid-template-columns: 1fr;
+    }
+}

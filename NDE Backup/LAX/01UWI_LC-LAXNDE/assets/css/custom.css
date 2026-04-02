@@ -1,0 +1,74 @@
+/* Top navigation background color and bottom border */
+header {
+    background-color: #730019 !important;
+    border-bottom: 5px solid #5d6063 !important;
+}
+
+/* This inverts the header icon colors to work on dark backgrounds. Comment out if you use a light background color */
+header li svg,
+header mat-select svg,
+header mat-icon svg {
+    filter: invert(1) brightness(5);
+}
+
+/* Text colors on the top navigation */
+header li span,
+header mat-select span,
+header mat-icon span {
+    color: #fff;
+}
+
+/* Library logo on the top left of the screen */
+header nde-logo {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: 180px !important;
+    max-width: 180px !important;
+    min-width: 180px !important;
+    overflow: hidden !important;
+}
+
+
+header nde-logo img {
+    display: block !important;
+    width: 165px !important;
+    max-width: 165px !important;
+    min-width: 165px !important;
+    height: 35px !important;
+    max-height: 35px !important;
+    min-height: 35px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Mobile-specific fix */
+@media (max-width: 768px) {
+    header nde-logo {
+        width: 140px !important;
+        max-width: 140px !important;
+        min-width: 140px !important;
+    }
+
+    header nde-logo img {
+        width: 130px !important;
+        max-width: 130px !important;
+        min-width: 130px !important;
+        height: 28px !important;
+        max-height: 28px !important;
+        min-height: 28px !important;
+    }
+}
+
+/* Background behind homepage search. Place the image in assets/images/background.png to your own. */
+/*
+.top-bar-background-image {
+    background-image: url(../images/background.png) !important;
+}
+*/
+
+/* This is the colorization and blur of Exlibris background image */
+.custom-search-bar-container .background-overlay {
+    /* display: none; */ /* uncomment this attribute to hide the effects */
+    background-color: #3f0310 !important;
+}

@@ -1,0 +1,57 @@
+.murphy-home-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.murphy-home-card {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 8px;
+    background: #ffffff;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.murphy-home-card h2 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    color: #730019;
+    font-size: 1.2rem;
+}
+
+.murphy-home-card p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.murphy-home-card ul {
+    list-style-position: outside;
+    margin: .75rem 0 0 1.25rem;
+    padding: 0;
+}
+
+.murphy-home-card li {
+    margin-bottom: .5rem;
+    line-height: 1.4;
+}
+
+.murphy-home-card li::marker {
+    color: #730019;
+}
+
+.murphy-home-card:hover,
+.murphy-home-card:focus {
+    box-shadow: 0 4px 12px rgba(0,0,0,.14);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .murphy-home-cards {
+        grid-template-columns: 1fr;
+    }
+}
