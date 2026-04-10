@@ -32,9 +32,9 @@
                                                                 </h1>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td align="left" valign="top" style="padding: 20px 0 0;">
-                                                                <xsl:call-template name="librarySalutation"/> 
+                                                       <tr>
+                                                            <td align="left" valign="top" style="padding: 10px 0px;">
+                                                                <br/><xsl:call-template name="librarySalutation"/> 
                                                             </td>
                                                         </tr>
                                                         <tr>
