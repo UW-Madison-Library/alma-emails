@@ -197,7 +197,7 @@
 																			</td>
 																		</tr>
 																	</xsl:if>
-																		<xsl:if test="notification_data/hys_item_display/fulfillment_note != ''">
+																		<xsl:if test="notification_data/phys_item_display/fulfillment_note != ''">
 																		<tr>
 																			<td style="height: 20px;"></td> <!-- This row adds a vertical gap -->
 																		</tr>
