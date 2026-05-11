@@ -434,7 +434,7 @@
 												<xsl:for-each select="notification_data/partner_shipping_info_list/partner_shipping_info">
 												<tr>
 													<td style="text-align: left; font-size: 20px; font-weight: bold; padding-top: 6px;">
-													<h2 style="margin: 0; font-size: 20px; font-weight: bold;">
+													<h2 style="margin: 0; font-size: 22px; font-weight: bold;">
 														<xsl:value-of select="address2"/>
 													</h2>
 													</td>
@@ -487,6 +487,7 @@
 															<xsl:when test="contains(notification_data/partner_name, 'Shaughnessy-Frey Library')">MNT</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Bethel')">MNK</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Hamline')">MHA</xsl:when>
+															<xsl:when test="contains(notification_data/partner_name, 'Cloud State')">MST</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Bridge')">MNO</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'MORRIS Briggs')">MNX</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'DULUTH Martin')">MND</xsl:when>
