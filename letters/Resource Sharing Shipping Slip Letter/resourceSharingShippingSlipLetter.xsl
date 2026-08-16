@@ -53,6 +53,7 @@
 			<xsl:when test="starts-with(/notification_data/incoming_request/external_request_id, '01MARQUETTE')">SWITCH</xsl:when>
 			<xsl:when test="starts-with(/notification_data/partner_code, '01SLCO')">SWITCH</xsl:when>
 			<xsl:when test="starts-with(/notification_data/partner_code, '01MARQUETTE')">SWITCH</xsl:when>
+			<xsl:when test="starts-with(/notification_data/partner_code, 'A-G:STWI:XA34')">MINITEX</xsl:when>
 			<xsl:when test="starts-with(/notification_data/partner_code, 'A-G:STWI')">WI_PUBLIC</xsl:when>
 			<xsl:when test="contains(/notification_data/incoming_request/pod_id, '381639321420000041')">MINITEX</xsl:when>
 			<xsl:when test="contains(notification_data/incoming_request/note, 'Personal Delivery')">PERSONAL_DELIVERY</xsl:when>
@@ -498,6 +499,7 @@
 														    <xsl:when test="contains(notification_data/partner_name, 'TC Law')">MLL</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'University of Minnesota')">MNU</xsl:when>
 															<xsl:when test="contains(notification_data/partner_name, 'Minitex')">MII</xsl:when>
+															<xsl:when test="contains(notification_data/partner_name, 'DPI-Minitex')">MII</xsl:when>
 														</xsl:choose>
 														</div>
 
