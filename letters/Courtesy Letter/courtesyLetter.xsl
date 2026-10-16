@@ -43,14 +43,16 @@
                                                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0">
 																	<tr>
 																		<td>
-																			You have items due soon. Please <a href="https://www.library.wisc.edu/borrow-request/return-materials/" style="color: #0073CE;" target="_blank">return the listed items</a> to a campus library. <br/><br/>
+																			Just a friendly reminder that the items below are due soon. You can return them to any <a href="https://www.library.wisc.edu/borrow-request/renew-checked-out-materials/" style="color: #0073CE;" target="_blank">campus library</a>.<br /><br />
+																			
+																			<strong>Need more time?</strong>
+																			<ul>
+																			    <li>You can renew most items in your <a href="https://account.library.wisc.edu/" style="color: #0073CE;" target="_blank">Library Account</a></li>
+																			    <li>If an item won't renew, just reply to this email with how long you still need and we'll help you figure out your options.</li>
+																			</ul>
 																		</td>
 																	</tr>
-																	<tr>
-																		<td>
-																			If you need more time with an item, reply to this email to determine your options.
-																		</td>
-																	</tr>
+															
 																</table>
 
                 											</td>
@@ -103,9 +105,10 @@
 																</table>
 															</td>
 														</tr>
+														<tr><td><br></br></td></tr>
 														<tr>
 															<td>
-																Overdue materials may result in fines, library account blocks, and enrollment holds. <a href="https://www.library.wisc.edu/borrow-request/fines-and-holds/" style="color: #0073CE;" target="_blank">See policies</a>.<br/><br/>
+																Please keep in mind that overdue items can lead to fines, account blocks, or enrollment holds. <a href="https://www.library.wisc.edu/borrow-request/fines-and-holds/" style="color: #0073CE;" target="_blank">Learn more about library fines and holds</a>.<br/><br/>
 															</td>
 														</tr>
 														<tr>
